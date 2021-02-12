@@ -1,19 +1,39 @@
 <?php 
-function GetDatabaseConnection(){//Opens a connection to the database
+function getDatabaseConnection(){//Opens a connection to the database
     $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
+	$username = "root";
+	$password = "mysql";
 
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=todo_list", $username, $password);
-        //Set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "connected successfully";
-        }
-        catch(PDOException $e) 
-        {
-        echo "connection failed: " . $e->getMessage();
-        }
-        return $conn;
+	try {
+	    $conn = new PDO("mysql:host=$servername;dbname=todo_list", $username, $password);
+	    // set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    //echo "Connected successfully";
+	    }
+	    catch(PDOException $e)
+	    {
+	    echo "Connection failed: " . $e->getMessage();
+	    }
+	    return $conn;
+}
+
+function getAllLists(){
+    $conn = getDatabaseConnection();
+    $query = $conn->prepare("SELECT * FROM lists ORDER BY name");
+    $query->execute();
+
+    $result = $query->fetchall();
+
+    return $result;
+}
+
+function getAllItems(){
+    $conn = getDatabaseConnection();
+    $query = $conn->prepare("SELECT * FROM tasks ORDER BY description");
+    $query->execute();
+
+    $items = $query->fetchall();
+
+    return $items;
 }
 ?>
