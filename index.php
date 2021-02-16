@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://kit.fontawesome.com/02e839955c.js" crossorigin="anonymous"></script>
     <title>Backend - TODO LIST</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
                 foreach ($items as $item) {
                     if($list["id"] == $item["list_id"]){
             ?>
-            <p class="w3-center">- <?= $item["description"] ?></p>
+            <p class="w3-margin-left">- <?= $item["description"] ?></p>
             <?php
                     }
                 }
@@ -40,6 +41,10 @@
         <?php 
             }
         ?>
+            
+    </section>
+    <section class="w3-container ">
+        <a class="w3-large addList_a" href="create_list_form.php"><i class="fas fa-clipboard-list"></i> Maak nieuwe lijst</a>
     </section>
     <footer class="w3-container w3-teal w3-center">
         <h5>© - Job Walst 2021</h5>

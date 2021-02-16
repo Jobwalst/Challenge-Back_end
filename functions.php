@@ -19,7 +19,7 @@ function getDatabaseConnection(){//Opens a connection to the database
 
 function getAllLists(){
     $conn = getDatabaseConnection();
-    $query = $conn->prepare("SELECT * FROM lists ORDER BY name");
+    $query = $conn->prepare("SELECT * FROM lists");
     $query->execute();
 
     $result = $query->fetchall();
