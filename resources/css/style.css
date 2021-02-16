@@ -1,3 +1,11 @@
 .addList_a{
     text-decoration: none;
 }
+
+.addList_a:hover{
+    color: teal;
+}
+
+#delete_a:hover{
+    color: teal;
+}

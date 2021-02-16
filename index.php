@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/02e839955c.js" crossorigin="anonymous"></script>
     <title>Backend - TODO LIST</title>
@@ -26,8 +26,9 @@
         <?php
             foreach ($result as $list) {
         ?>
-        <div class="w3-card w3-quarter w3-margin">
-            <h4 class="w3-center w3-border-bottom"><?= $list["name"] ?></h4>
+        <div class="w3-card w3-quarter w3-margin ">
+            <h4 class="w3-center w3-border-bottom"> <?= $list["name"] ?> <a id="delete_a" href="delete_list.php?id=<?= $list['id'] ?>" onclick="return confirm('Weet je zeker dat je deze lijst wilt verwijderen?')"><i class="far fa-trash-alt"></i></a></h4>
+            
             <?php
                 foreach ($items as $item) {
                     if($list["id"] == $item["list_id"]){
@@ -41,7 +42,6 @@
         <?php 
             }
         ?>
-            
     </section>
     <section class="w3-container ">
         <a class="w3-large addList_a" href="create_list_form.php"><i class="fas fa-clipboard-list"></i> Maak nieuwe lijst</a>
