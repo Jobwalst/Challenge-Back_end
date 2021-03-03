@@ -16,6 +16,14 @@
     text-decoration: none;
 }
 
+.itemText a{
+    text-decoration: none;
+}
+
+.itemText a:hover{
+    color: teal;
+}
+
 .itemText span{
     color: crimson;
 }
@@ -26,4 +34,8 @@
 
 .createItem_a:hover{
     color: teal;
+}
+
+.changeListSub{
+    cursor: pointer;
 }

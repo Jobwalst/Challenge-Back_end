@@ -32,15 +32,15 @@
                 <form action="update.php" method="post">
                     <input type="text" name="name" value="<?= $list["name"] ?>" required>
                     <input type="text" name="id" value="<?= $list["id"] ?>" hidden>
-                    <input type="submit" value="Verander">
+                    <input class="w3-blue changeListSub" type="submit" value="Verander">
                 </form>
-                <a class="delete_a w3-margin-top " href="delete_list.php?id=<?= $list['id'] ?>&list_id=<?= $items["list_id"] ?>" onclick="return confirm('Weet je zeker dat je deze lijst wilt verwijderen?')"><i class="far fa-trash-alt"></i> Verwijder</a>
+                <a class="delete_a w3-margin-top " href="delete_list.php?id=<?= $list["id"] ?>&list_id=<?= $items["list_id"] ?>" onclick="return confirm('Weet je zeker dat je deze lijst wilt verwijderen?')"><i class="far fa-trash-alt"></i> Verwijder</a>
             </div>    
             <?php
                 foreach ($items as $item) {
                     if($list["id"] == $item["list_id"]){
             ?>
-            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span></p>    
+            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span><a onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?')" href="delete_item.php?id=<?= $item["id"] ?>"> <i class="far fa-trash-alt"></i></a></p>    
             <?php
                     }
                 }
