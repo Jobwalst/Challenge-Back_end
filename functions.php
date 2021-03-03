@@ -2,7 +2,7 @@
 function getDatabaseConnection(){//Opens a connection to the database
     $servername = "localhost";
 	$username = "root";
-	$password = "mysql";
+	$password = "";
 
 	try {
 	    $conn = new PDO("mysql:host=$servername;dbname=todo_list", $username, $password);
@@ -35,5 +35,15 @@ function getAllItems(){
     $items = $query->fetchall();
 
     return $items;
+}
+
+function joinListItems(){
+	$conn = getDatabaseConnection();
+	$query = $conn->prepare("SELECT * FROM lists INNER JOIN tasks ON lists.id=tasks.list_id");
+	$query->execute();
+
+	$joined = $query->fetch();
+
+	return $joined;
 }
 ?>

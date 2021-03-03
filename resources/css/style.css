@@ -6,6 +6,24 @@
     color: teal;
 }
 
-#delete_a:hover{
+.delete_a:hover{
+    color: teal;
+}
+
+.delete_a{
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.itemText span{
+    color: crimson;
+}
+
+.createItem_a{
+    text-decoration: none;
+}
+
+.createItem_a:hover{
     color: teal;
 }
