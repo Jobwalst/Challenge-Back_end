@@ -29,7 +29,7 @@
         ?>
         <div class="w3-card w3-quarter w3-margin">
             <div class="w3-center aboveList w3-border-bottom w3-padding">
-                <form action="update.php" method="post">
+                <form action="update_list.php" method="post">
                     <input type="text" name="name" value="<?= $list["name"] ?>" required>
                     <input type="text" name="id" value="<?= $list["id"] ?>" hidden>
                     <input class="w3-blue changeListSub" type="submit" value="Verander">
@@ -40,7 +40,7 @@
                 foreach ($items as $item) {
                     if($list["id"] == $item["list_id"]){
             ?>
-            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span><a onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?')" href="delete_item.php?id=<?= $item["id"] ?>"> <i class="far fa-trash-alt"></i></a></p>    
+            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span><a onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?')" href="delete_item.php?id=<?= $item["id"] ?>"> <i class="far fa-trash-alt"></i></a><a href="update_item_form.php?id=<?= $item["id"] ?>&name=<?= $list["name"] ?>&desc=<?= $item["description"] ?>&time=<?= $item["time"] ?>&status=<?= $item["status"] ?>"> <i class="far fa-edit"></i></a></p>    
             <?php
                     }
                 }
