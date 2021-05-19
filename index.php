@@ -20,10 +20,21 @@
     //var_dump($joined);
 ?> 
 <div class="container">
-    <header class="w3-container w3-teal w3-center">
+    <header class="w3-container w3-teal w3-center w3-margin-bottom">
         <h1>Maak een nieuwe lijst of voeg items toe aan een lijst.</h1>
     </header>
     <section class="w3-container w3-row">
+        <div>
+            <button class="w3-btn w3-blue w3-margin-bottom">Filter op duur</button>
+            <form action="sortStatus.php" method="post">
+                <label class="w3-text-blue" for="sortStatus">Filter op status: </label>
+                <select class="w3-border" name="sortStatus" id="sortStatus">
+                    <option value="voldaan">voldaan</option>
+                    <option value="loopt">loopt</option>
+                    <option value="niet voldaan">niet voldaan</option>
+                </select>
+            </form>
+        </div>    
         <?php
             foreach ($result as $list) {
         ?>
@@ -34,7 +45,7 @@
                     <input type="text" name="id" value="<?= $list["id"] ?>" hidden>
                     <input class="w3-blue changeListSub" type="submit" value="Verander">
                 </form>
-                <a class="delete_a w3-margin-top " href="delete_list.php?id=<?= $list["id"] ?>&list_id=<?= $items["list_id"] ?>" onclick="return confirm('Weet je zeker dat je deze lijst wilt verwijderen?')"><i class="far fa-trash-alt"></i> Verwijder</a>
+                <a class="delete_a w3-margin-top " href="delete_list.php?list_id=<?= $list['id'] ?>" onclick="return confirm('Weet je zeker dat je deze lijst wilt verwijderen?')"><i class="far fa-trash-alt"></i> Verwijder</a>
             </div>    
             <?php
                 foreach ($items as $item) {

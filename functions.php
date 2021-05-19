@@ -37,6 +37,7 @@ function getAllItems(){
     return $items;
 }
 
+/*
 function joinListItems(){
 	$conn = getDatabaseConnection();
 	$query = $conn->prepare("SELECT * FROM lists INNER JOIN tasks ON lists.id=tasks.list_id");
@@ -46,4 +47,5 @@ function joinListItems(){
 
 	return $joined;
 }
+*/
 ?>
