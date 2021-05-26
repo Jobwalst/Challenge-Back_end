@@ -28,13 +28,21 @@ function getAllLists(){
 }
 
 function getAllItems(){
-    $conn = getDatabaseConnection();
-    $query = $conn->prepare("SELECT * FROM tasks ORDER BY description");
-    $query->execute();
+	$conn = getDatabaseConnection();
+	if(isset($_GET["sort"]) && $_GET["sort"] == "time"){
+		$type = $_GET["type"];
+		$query = $conn->prepare("SELECT * FROM tasks ORDER BY time " . $type);
+	}
+	else{
+		$query = $conn->prepare("SELECT * FROM tasks ORDER BY description");
+	}
+		
+		
+		$query->execute();
 
-    $items = $query->fetchall();
+		$items = $query->fetchall();
 
-    return $items;
+		return $items;
 }
 
 /*

@@ -25,8 +25,19 @@
     </header>
     <section class="w3-container w3-row">
         <div>
-            <button class="w3-btn w3-blue w3-margin-bottom">Filter op duur</button>
-            <form action="sortStatus.php" method="post">
+        <?php
+            if(isset($_GET["type"]) && $_GET["type"] == "DESC"){
+                ?>
+                    <a href="index.php?sort=time&type=ASC" class="w3-btn w3-blue">Filter op duur</a>
+                <?php
+            }
+            else{
+                ?>
+                    <a href="index.php?sort=time&type=DESC" class="w3-btn w3-blue">Filter op duur</a>
+                <?php
+            }
+        ?>
+            <form action="index.php?sort=status" method="post">
                 <label class="w3-text-blue" for="sortStatus">Filter op status: </label>
                 <select class="w3-border" name="sortStatus" id="sortStatus">
                     <option value="voldaan">voldaan</option>
