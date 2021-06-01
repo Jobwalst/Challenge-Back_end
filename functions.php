@@ -29,21 +29,35 @@ function getAllLists(){
 
 function getAllItems(){
 	$conn = getDatabaseConnection();
+
+	$where = "";
+	if(isset($_GET["status"])){
+		$where = "WHERE status = '".$_GET["status"]."'";
+	}
+
 	if(isset($_GET["sort"]) && $_GET["sort"] == "time"){
 		$type = $_GET["type"];
-		$query = $conn->prepare("SELECT * FROM tasks ORDER BY time " . $type);
+		$query = $conn->prepare("SELECT * FROM tasks ".$where." ORDER BY time " . $type);
 	}
 	else{
-		$query = $conn->prepare("SELECT * FROM tasks ORDER BY description");
+		$query = $conn->prepare("SELECT * FROM tasks ".$where." ORDER BY description");
 	}
 		
-		
+		$query->bindParam(1, $where, PDO::PARAM_STR, 12);
 		$query->execute();
 
 		$items = $query->fetchall();
 
 		return $items;
 }
+
+/*
+function sortStat(){
+	$conn = getDatabaseConnection();
+	$status = $_POST["sortStatus"];
+	$query = $conn->prepare("SELECT * FROM tasks WHERE status = :status");
+}
+*/  
 
 /*
 function joinListItems(){

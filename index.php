@@ -37,12 +37,13 @@
                 <?php
             }
         ?>
-            <form action="index.php?sort=status" method="post">
+            <form action="sortStat.php" method="post">
                 <label class="w3-text-blue" for="sortStatus">Filter op status: </label>
                 <select class="w3-border" name="sortStatus" id="sortStatus">
-                    <option value="voldaan">voldaan</option>
-                    <option value="loopt">loopt</option>
-                    <option value="niet voldaan">niet voldaan</option>
+                    <option value="voldaan"<?php if(isset($_GET["status"]) && $_GET["status"] == "voldaan"){ echo ' selected="selected"'; }?>>voldaan</option>
+                    <option value="loopt"<?php if(isset($_GET["status"]) && $_GET["status"] == "loopt"){ echo ' selected="selected"'; }?>>loopt</option>
+                    <option value="niet voldaan"<?php if(isset($_GET["status"]) && $_GET["status"] == "niet voldaan"){ echo ' selected="selected"'; }?>>niet voldaan</option>
+                    <input type="submit" value="Sorteer" class="w3-blue">
                 </select>
             </form>
         </div>    
