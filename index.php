@@ -46,6 +46,7 @@
                     <input type="submit" value="Sorteer" class="w3-blue">
                 </select>
             </form>
+            <a href="index.php" class="reset_a">Reset</a>
         </div>    
         <?php
             foreach ($result as $list) {

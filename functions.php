@@ -50,24 +50,3 @@ function getAllItems(){
 
 		return $items;
 }
-
-/*
-function sortStat(){
-	$conn = getDatabaseConnection();
-	$status = $_POST["sortStatus"];
-	$query = $conn->prepare("SELECT * FROM tasks WHERE status = :status");
-}
-*/  
-
-/*
-function joinListItems(){
-	$conn = getDatabaseConnection();
-	$query = $conn->prepare("SELECT * FROM lists INNER JOIN tasks ON lists.id=tasks.list_id");
-	$query->execute();
-
-	$joined = $query->fetch();
-
-	return $joined;
-}
-*/
-?>
