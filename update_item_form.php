@@ -1,3 +1,4 @@
+<?php include("functions.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 <body>
 <?php 
 $id = $_GET["id"];
+
 $name = $_GET["name"];
 $desc = $_GET["desc"];
 $time = $_GET["time"];
