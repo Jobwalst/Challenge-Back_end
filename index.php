@@ -64,7 +64,7 @@
                 foreach ($items as $item) {
                     if($list["id"] == $item["list_id"]){
             ?>
-            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span><a onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?')" href="delete_item.php?id=<?= $item["id"] ?>"> <i class="far fa-trash-alt"></i></a><a href="update_item_form.php?id=<?= $item["id"] ?>&name=<?= $list["name"] ?>&desc=<?= $item["description"] ?>&time=<?= $item["time"] ?>&status=<?= $item["status"] ?>"> <i class="far fa-edit"></i></a></p>    
+            <p class="itemText w3-margin-left">- <?= $item["description"] ?> <span>tijd: <?= $item["time"] ?> min. status: <?= $item["status"] ?></span><a onclick="return confirm('Weet je zeker dat je dit item wilt verwijderen?')" href="delete_item.php?id=<?= $item["id"] ?>"> <i class="far fa-trash-alt"></i></a><a href="update_item_form.php?id=<?= $item["id"] ?>"> <i class="far fa-edit"></i></a></p>    
             <?php
                     }
                 }

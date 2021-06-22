@@ -94,6 +94,21 @@ function createItem($list_id, $desc, $time, $status){
 	$query->execute();
 }
 
-function updateItem(){
+function updateItem($id, $desc, $time, $status){
+	$conn = getDatabaseConnection();
 
+	$query = $conn->prepare("UPDATE tasks SET description = :description, time = :time, status = :status WHERE id = :id");
+	$query->bindParam(":id", $id);
+	$query->bindParam(":description", $desc);
+	$query->bindParam(":time", $time);
+	$query->bindParam(":status", $status);
+	$query->execute();
+}
+
+function deleteItem($id){
+	$conn = getDatabaseConnection();
+
+	$query = $conn->prepare("DELETE FROM tasks WHERE id = :id");
+	$query->bindParam(":id", $id);
+	$query->execute();
 }
