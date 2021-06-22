@@ -33,7 +33,7 @@
             }
             else{
                 ?>
-                    <a href="index.php?sort=time&type=DESC" class="w3-btn w3-blue">Filter op duur</a>
+                    <a href="index.php?sort=time&type=DESC" class="w3-btn w3-blue">Sorteer op duur</a>
                 <?php
             }
         ?>
@@ -43,7 +43,7 @@
                     <option value="voldaan"<?php if(isset($_GET["status"]) && $_GET["status"] == "voldaan"){ echo ' selected="selected"'; }?>>voldaan</option>
                     <option value="loopt"<?php if(isset($_GET["status"]) && $_GET["status"] == "loopt"){ echo ' selected="selected"'; }?>>loopt</option>
                     <option value="niet voldaan"<?php if(isset($_GET["status"]) && $_GET["status"] == "niet voldaan"){ echo ' selected="selected"'; }?>>niet voldaan</option>
-                    <input type="submit" value="Sorteer" class="w3-blue">
+                    <input type="submit" value="Filter" class="w3-blue">
                 </select>
             </form>
             <a href="index.php" class="reset_a">Reset</a>
